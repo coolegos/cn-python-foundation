@@ -22,4 +22,40 @@ September 2016.".
 如果键已经存在于字典内，为键所对应的值加上对应数值；
 如果键不存在于字典内，将此键加入字典，并将它的值设为给定值。
 """
+def calculate_time():
+	""" 计算每个电话号码的通话时间
+	"""
+	call_time = {}
+	for call in calls:
+		if call[0] in call_time:
+			call_time[call[0]] += int(call[3])
+		else:
+			call_time[call[0]] = int(call[3])
 
+		if call[1] in call_time:
+			call_time[call[1]] += int(call[3])
+		else:
+			call_time[call[1]] = int(call[3])
+	return call_time
+
+def calculate_longest_time_phone():
+	""" 计算通话时间最长的电话号码
+	"""
+	call_time = calculate_time()
+	longest_time_phone = None
+	longest_time = 0
+
+	for phone in call_time:
+		if int(call_time[phone]) > longest_time:
+			longest_time = call_time[phone]
+			longest_time_phone = [phone]
+		elif int(call_time[phone]) == longest_time:
+			longest_time_phone.append(phone)
+
+	if (len(longest_time_phone) == 1):
+		return "{} spent the longest time, {} seconds, on the phone during September 2016.".format(longest_time_phone[0], longest_time)
+	else:
+		return "{} spent the longest time, {} seconds, on the phone during September 2016.".format(longest_time_phone, longest_time)
+
+# print(len(calculate_time()))
+print(calculate_longest_time_phone())
