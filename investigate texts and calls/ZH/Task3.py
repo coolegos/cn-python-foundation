@@ -107,7 +107,7 @@ def called_code_by_Bangalore():
 # print(called_code_by_Bangalore())
 # print(len(called_code_by_Bangalore()))
 def print_code_called_by_Bangalore():
-	print("The numbers called by people in Bangalore have codes:{}")
+	print("The numbers called by people in Bangalore have codes:")
 	phone_prefixes = called_code_by_Bangalore()
 	phone_prefixes = sorted(phone_prefixes)
 	for phone_prefixe in phone_prefixes:
