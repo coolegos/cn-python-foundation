@@ -38,6 +38,14 @@ def calculate_time():
 			call_time[call[1]] = int(call[3])
 	return call_time
 
+def calculate_longest_time():
+	""" 计算通话时间最长的电话号码
+	"""
+	call_time = calculate_time()
+	phone_of_longest_call = max(call_time, key=call_time.get)
+	print(call_time[phone_of_longest_call])
+	return phone_of_longest_call
+
 def calculate_longest_time_phone():
 	""" 计算通话时间最长的电话号码
 	"""
@@ -58,4 +66,5 @@ def calculate_longest_time_phone():
 		return "{} spent the longest time, {} seconds, on the phone during September 2016.".format(longest_time_phone, longest_time)
 
 # print(len(calculate_time()))
+print(calculate_longest_time())
 print(calculate_longest_time_phone())
